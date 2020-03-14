@@ -653,45 +653,39 @@
     "healthCareDistrict": "unknown",
     "infectionSourceCountry": "unknown",
     "infectionSource": "unknown"
-  }],
-  "recovered": [{
+  }, {
     "id": 109,
-    "date": "2020-03-14",
+    "date": "2020-03-13",
     "healthCareDistrict": "unknown",
     "infectionSourceCountry": "unknown",
     "infectionSource": "unknown"
-  }],
-  "recovered": [{
+  }, {
     "id": 110,
-    "date": "2020-03-14",
+    "date": "2020-03-13",
     "healthCareDistrict": "unknown",
     "infectionSourceCountry": "unknown",
     "infectionSource": "unknown"
-  }],
-  "recovered": [{
+  }, {
     "id": 111,
-    "date": "2020-03-14",
+    "date": "2020-03-13",
     "healthCareDistrict": "unknown",
     "infectionSourceCountry": "unknown",
     "infectionSource": "unknown"
-  }],
-  "recovered": [{
+  }, {
     "id": 112,
-    "date": "2020-03-14",
+    "date": "2020-03-13",
     "healthCareDistrict": "unknown",
     "infectionSourceCountry": "unknown",
     "infectionSource": "unknown"
-  }],
-  "recovered": [{
+  }, {
     "id": 113,
-    "date": "2020-03-14",
+    "date": "2020-03-13",
     "healthCareDistrict": "unknown",
     "infectionSourceCountry": "unknown",
     "infectionSource": "unknown"
-  }],
-  "recovered": [{
+  }, {
     "id": 114,
-    "date": "2020-03-14",
+    "date": "2020-03-13",
     "healthCareDistrict": "unknown",
     "infectionSourceCountry": "unknown",
     "infectionSource": "unknown"
@@ -705,7 +699,7 @@
   }],
   "deaths": [],
   "location": {
-    "Tallinn/Harjumaa": 54,
+    "Harjumaa": 54,
     "Tartumaa": 6,
     "V\u00f5rumaa": 9,
     "Saaremaa": 31,
