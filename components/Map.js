@@ -30,7 +30,7 @@ function drawCounties() {
     // Population data
     var population_data = d3.map();
 
-    var svg = d3.select("svg.map_population");
+    var svg = d3.select("svg.map");
 
     svg.append("rect")
         .attr("width", width)
@@ -40,9 +40,9 @@ function drawCounties() {
     var g = svg.append("g");
     // Load TopoJSON maps and data asynchronously.
     d3.queue()
-        .defer(d3.json, "/koroonakaart/public/data/json/counties.json")
+        .defer(d3.json, "/koroonakaart/public/data/topojson/counties.json")
         // .defer(d3.json, "/koroonakaart/public/data/json/settlements.json")
-        .defer(d3.csv, "/koroonakaart/public/data/population_by_county.csv", function (d) {
+        .defer(d3.csv, "/koroonakaart/public/data/counties_dummy.csv", function (d) {
             if (isNaN(d['pop_' + current_year])) {
                 population_data.set(d.id, 0);
             } else {
@@ -156,25 +156,6 @@ function drawCounties() {
 }
 
 
-function updatePopulationByYear(current_year) {
-    d3.queue()
-    .defer(d3.csv, "/koroonakaart/public/data/population_by_country.csv", function (d) {
-        console.log("old one: "+current_place_population)
-        population_data = {}
-        population_data.current_year = current_year;
-        population_data.population = parseInt(d['pop_' + current_year]).toLocaleString();
-    })
-    .await(updatePopulationByYearCallBack);
-
-}
-
-
-function updatePopulationByYearCallBack(err,data) {
-    vue_app.current_place_population = population_data['population'];
-    console.log("aaa " + current_place_population)
-}
-
-
 function drawMunicipalities() {
     // Colour
     var population_domain = [0, 1000, 5000, 10000, 20000, 50000, 100000, 500000];
@@ -185,7 +166,7 @@ function drawMunicipalities() {
     // Population data
     var population_data = d3.map();
 
-    var svg = d3.select("svg.map_population");
+    var svg = d3.select("svg.map");
 
     svg.append("rect")
         .attr("width", width)
