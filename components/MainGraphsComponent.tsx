@@ -17,6 +17,7 @@ import CustomizedAxisTick from "./CustomizedAxisTick"
 import InfectedCountComponent from "./InfectedCountComponent";
 import DeathCountComponent from "./DeathCountComponent";
 import RecoveredCountComponent from "./RecoveredCountComponent";
+import TestedCountComponent from "./TestedCountComponent";
 
 
 
@@ -32,16 +33,20 @@ const MainGraphsComponent: React.FC<any> = ({props }) => (
     }
   <Flex flexWrap="wrap" flexDirection="row" justifyContent="center" alignItems="stretch" flex="1" width={"100%"}>
 
-    <Box width={"33.33333%"} p={3}>
+    <Box width={"25%"} p={3}>
         <InfectedCountComponent props={props}/>
 
     </Box>
-    <Box width={"33.33333%"} p={3}>
+    <Box width={"25%"} p={3}>
         <DeathCountComponent props={props}/>
     </Box>
 
-    <Box width={"33.33333%"}  p={3}>
+    <Box width={"25%"}  p={3}>
         <RecoveredCountComponent props={props}/>
+    </Box>
+
+    <Box width={"25%"}  p={3}>
+        <TestedCountComponent props={props}/>
     </Box>
 
     </Flex>
