@@ -2,7 +2,7 @@ import { format } from 'date-fns';
 
 export const infectionColumns = [
   {
-    Header: 'Jär.nro',
+    Header: 'Jrk',
     accessor: 'index',
     Cell: ({ cell: { value } }: any) => {
       return value
@@ -17,28 +17,28 @@ export const infectionColumns = [
       
   },
   {
-    Header: 'Päiväys',
+    Header: 'Kuupäev',
     accessor: 'date',
     minWidth: '20%',
     Cell: ({ cell: { value } }: any) => format(new Date(value), 'dd.MM.yyyy - HH:mm')
   },
   {
-    Header: 'Sair.hoitopiiri',
+    Header: 'Maakond',
     accessor: 'healthCareDistrict',
   },
   {
-    Header: 'Maa',
+    Header: 'Päritolumaa',
     accessor: 'infectionSourceCountry',
   },
   {
-    Header: 'Tartunnan lähde',
+    Header: 'Nakkuse allikas',
     accessor: 'infectionSource',
     Cell: ({ cell: { value } }: any) => {
       if (value === 'unknown') {
-        return 'Ei tiedossa';
+        return 'Ei tea';
       }
       if (value === 'related to earlier') {
-        return 'Liityy aiempaan'
+        return 'Seotud eelmisega'
       }
       return `#0${value}`
     }
