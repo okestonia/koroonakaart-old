@@ -12,12 +12,12 @@ const CumulativeGrowthComponent: React.FC<any> = ({props }) => (
 
     <Block title="Kumulatiivne areng (30 päeva)" footer="">
         <ButtonGroup spacing={0} alignSelf="center" display="flex" justifyContent="center" marginTop="-15px">
-          <Button size="xs" fontFamily="Space Grotesk Regular" px={3} letterSpacing="1px" borderRadius="4px 0px 0px 4px" borderWidth="0px" 
+          <Button size="xs" fontFamily="'Segoe UI', 'Helvetica Neue', Helvetica, Verdana, sans-serif;" px={3} letterSpacing="1px" borderRadius="4px 0px 0px 4px" borderWidth="0px" 
             isActive={props.cumulativeChartScale === 'linear'} onClick={() => props.setCumulativeChartScale('linear')}>
             Lineaarne
           </Button>
           
-          <Button size="xs" fontFamily="Space Grotesk Regular" px={3} letterSpacing="1px" borderRadius="0px 4px 4px 0px" borderWidth="0px" 
+          <Button size="xs" fontFamily="'Segoe UI', 'Helvetica Neue', Helvetica, Verdana, sans-serif;" px={3} letterSpacing="1px" borderRadius="0px 4px 4px 0px" borderWidth="0px" 
             isActive={props.cumulativeChartScale === 'log'}  onClick={() => props.setCumulativeChartScale('log')}>
             Logaritmiline
           </Button>
