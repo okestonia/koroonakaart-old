@@ -40,9 +40,9 @@ function drawCounties() {
     var g = svg.append("g");
     // Load TopoJSON maps and data asynchronously.
     d3.queue()
-        .defer(d3.json, "/koroonakaart/public/data/json/counties.json")
+        .defer(d3.json, "/koroonakaart/public/data/topojson/counties.json")
         // .defer(d3.json, "/koroonakaart/public/data/json/settlements.json")
-        .defer(d3.csv, "/koroonakaart/public/data/population_by_county.csv", function (d) {
+        .defer(d3.csv, "/koroonakaart/public/data/counties_dummy.csv", function (d) {
             if (isNaN(d['pop_' + current_year])) {
                 population_data.set(d.id, 0);
             } else {
