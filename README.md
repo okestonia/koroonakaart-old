@@ -1,8 +1,8 @@
-# korona.kans.io
+# Modified
 
-> Corona virus information for people in Finland [korona.kans.io](https://korona.kans.io/)
+This is modification of [https://github.com/valstu/korona-info/](https://github.com/valstu/korona-info/). To work on initial Estonian data.
 
-Check out live version [here](https://korona.kans.io/)
+
 
 ## Development
 
@@ -20,11 +20,6 @@ Other technologies used:
 - date-fns
 - Chakra-UI 
 - etc.
-
-## Contributors
-Following people have also contributed to this project: 
-  - [miikkajs](https://github.com/valstu/korona-info/pulls/miikkajs) (infection predictions)
-
 
 ## License
 
