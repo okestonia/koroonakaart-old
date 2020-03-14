@@ -119,7 +119,37 @@ export const getPredictionData = (confirmed: Confirmed[], deaths: Deaths[], reco
 
 }
 
-export const getTnfectionsByDistrict = (confirmed: Confirmed[]) => {
+
+
+export const getInfectionsByDistrictNew = (location: any) => {
+
+  const infectionsByDistrict = Object.entries(location).map((value) => ({
+    name: value[0],
+    infections: value[1],
+    // @ts-ignore
+    people: Math.round(healtCareDistricts.find(i => i.name === value[0])?.people / peopleTotal * 100)
+  }))
+
+  /**
+   const infectionsByDistrictPercentage = Object.entries(groupedData).map((value) => ({
+    name: value[0],
+    infections: Math.round(value[1] / confirmed.length * 100),
+    // @ts-ignore
+    people: Math.round(healtCareDistricts.find(i => i.name === value[0])?.people / peopleTotal * 100),
+    // @ts-ignore
+    perDistrict: Math.round(value[1] / healtCareDistricts.find(i => i.name === value[0])?.people * 100 * 10000) / 10000,
+  }))
+  */
+
+  const areas = Object.entries(location).map((value) => (value[0]));
+  return {
+    infectionsByDistrict,
+    //infectionsByDistrictPercentage,
+    areas
+  };
+}
+
+export const getInfectionsByDistrict = (confirmed: Confirmed[]) => {
   const groupedData = groupBy(confirmed, 'healthCareDistrict');
 
   const infectionsByDistrict = Object.entries(groupedData).map((value) => ({
