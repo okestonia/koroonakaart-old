@@ -11,7 +11,7 @@ import StatBlock from '../components/StatBlock';
 
 const InfectionsPerMunicipalityComponent: React.FC<any> = ({props }) => (
     <Block title="Tehtud teste"
-    textAlign="center" footer={'   '}>
+    textAlign="center">
     <StatBlock count = {843} />
     </Block>
 )

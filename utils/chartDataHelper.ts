@@ -59,6 +59,13 @@ interface InfectionDevelopmentDataObj {
   today: number;
 }
 
+
+/**
+ * Data extraction for growth chart.
+ * @param confirmed 
+ * @param recovered 
+ * @param deaths 
+ */
 export const getTimeSeriesData = (confirmed: Confirmed[], recovered: Recovered[], deaths: Deaths[]): {
   infectionDevelopmentData: InfectionDevelopmentDataItem[]
   infectionDevelopmentData30Days: InfectionDevelopmentDataItem[]
@@ -68,8 +75,13 @@ export const getTimeSeriesData = (confirmed: Confirmed[], recovered: Recovered[]
   const sortedDataRecoverd = sortBy(recovered, 'date').map(item => ({ ...item, dateString: format(new Date(item.date), 'yyyy-MM-dd') }));
   const sortedDataDeaths = sortBy(deaths, 'date').map(item => ({ ...item, dateString: format(new Date(item.date), 'yyyy-MM-dd') }));
 
+  // Get maximum date
+  const end_date = new Date(sortedData[sortedData.length - 1].date)
 
-  const daysIntervalSinceFirstInfection = eachDayOfInterval({ start: new Date(sortedData[0].date), end: new Date(sortedData[sortedData.length - 1].date) });
+  const max_dates = [sortedData[sortedData.length-1], sortedDataRecoverd[sortedDataRecoverd.length-1], sortedDataDeaths[sortedDataDeaths.length-1]];
+  const maximumDates=max_dates.sort().filter(elm=>elm);
+  const maximumDate = maximumDates[maximumDates.length - 1].dateString;
+  const daysIntervalSinceFirstInfection = eachDayOfInterval({ start: new Date(sortedData[0].date), end: new Date(maximumDate) });
 
   const infectionDevelopmentData: InfectionDevelopmentDataItem[] = []
   daysIntervalSinceFirstInfection.reduce((acc, curr) => {
@@ -211,6 +223,25 @@ export const getInfectionsToday = (confirmed: Confirmed[]) => {
   const infectionsToday = confirmed.filter(infection => isToday(new Date(infection.date)));
   return infectionsToday.length || 0;
 }
+
+/**
+ * Find last day we have information for, get how many infections confirmed on that day.
+ * @param confirmed cases json in a list
+ */
+export const getLastInfectionDayData = (confirmed: Confirmed[]) => {
+  // Find maximum date out of all infections
+  //console.log(confirmed);
+  let maximumDate=sortBy(confirmed, 'date').map(item => ({ ...item, dateString: format(new Date(item.date), 'yyyy-MM-dd') }))[confirmed.length - 1].dateString;
+  // Filter out cases where it is the final day with information
+  console.log(maximumDate);
+  const lastInfections = confirmed.filter(infection => isSameDay(new Date(infection.date), new Date(maximumDate)));
+
+  return {
+    infections: lastInfections.length || 0,
+    date: maximumDate
+  }
+}
+
 
 export const getNetworkGraphData = (confirmed: Confirmed[]) => {
 
