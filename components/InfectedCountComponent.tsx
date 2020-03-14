@@ -10,9 +10,9 @@ import StatBlock from '../components/StatBlock';
 
 
 const InfectionsPerMunicipalityComponent: React.FC<any> = ({props }) => (
-    <Block title="Nakatunud" textAlign="center" extraInfo={`Uued nakatumised täna ${props.infectionsToday} in.`} 
+    <Block title="Kinnitatud haigusjuhtu" textAlign="center" extraInfo={`Uued nakatumised täna ${props.infectionsToday} in.`}
             footer={`Viimati nakatunud ${props.latestInfection} (${props.latestInfectionDistrict})`}>
-        <StatBlock count={props.confirmedCount} helpText={`Uued nakatumised täna: ${props.infectionsToday} in.`} />
+        <StatBlock count={props.confirmedCount} helpText={`Uusi nakatunuid täna: ${props.infectionsToday} in.`} />
     </Block>
 )
 

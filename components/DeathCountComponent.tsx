@@ -9,7 +9,7 @@ import StatBlock from '../components/StatBlock';
 
 
 const InfectionsPerMunicipalityComponent: React.FC<any> = ({props }) => (
-    <Block title="Hukkunud" textAlign="center" 
+    <Block title="Hukkunuid" textAlign="center" 
     footer={props.latestDeath ? `Viimati surnud ${props.latestDeath} (${props.latestDeathDistrict})` : 'Ei ole surnuid'}>
     <StatBlock count={props.deathCount || 0} />
     </Block>
