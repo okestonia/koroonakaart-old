@@ -30,7 +30,7 @@ function drawCounties() {
     // Population data
     var population_data = d3.map();
 
-    var svg = d3.select("svg.map_population");
+    var svg = d3.select("svg.map");
 
     svg.append("rect")
         .attr("width", width)
@@ -166,7 +166,7 @@ function drawMunicipalities() {
     // Population data
     var population_data = d3.map();
 
-    var svg = d3.select("svg.map_population");
+    var svg = d3.select("svg.map");
 
     svg.append("rect")
         .attr("width", width)
