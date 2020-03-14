@@ -21,7 +21,7 @@ const MetaComponent: React.FC<MetaProps> = ({ confirmedCount, recoveredCount, de
         <meta property="og:image" content="/images/corona-virus.png" />
         <meta property="og:image:width" content="1920" />
         <meta property="og:image:height" content="1928" />
-        <meta property="og:url" content="https://korona.kans.io" />
+        <meta property="og:url" content="http://koroonakaart.ee/" />
     </Head>
 )
 
