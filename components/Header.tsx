@@ -34,8 +34,9 @@ const Header: React.FC = () => (
     </Head>
     <Box p={[2, 4, 5]} width={['100%', '100%', 2/3, 2/3]} textAlign="center">
       <Image src="/images/corona-virus-small.png" mb={0} title="CDC/ Alissa Eckert, MS; Dan Higgins, MAM / Public domain" alt="Kuvituskuva koronaviruksesta" borderWidth="0px" width="90px" />
-      <Heading as="h1" color="rgb(51, 68, 85)" mb={[3, 3, 5]} mt={[3, 3, 2]} textAlign="center">Koroona viirus Eestis</Heading>
-      <Text mb={5} fontFamily="Space Mono" color="rgb(51, 68, 85, 0.8)">Allolev informatsioon põhineb <Link color="teal.500" href="https://github.com/HS-Datadesk/koronavirus-avoindata" isExternal>Eesti Vabariigi terviseameti</Link> andmetel, mida uuendatakse uute andmete saabumisel. Uuri lisainfot: </Text>
+      <Heading as="h1" color="rgb(51, 68, 85)" mb={[3, 3, 5]} mt={[3, 3, 2]} textAlign="center">Koroonaviirus Eestis</Heading>
+      <Heading as="h1" textAlign ="center">Andmed on ebatäpsed! Lehte arendadakse aktiivselt!</Heading>
+      <Text mb={5} fontFamily="Space Mono" color="rgb(51, 68, 85, 0.8)">Allolev informatsioon põhineb Eesti Vabariigi terviseameti andmetel, mida uuendatakse uute andmete saabumisel. Uuri lisainfot: </Text>
       <List styleType="none" mb={4} fontFamily="Space Mono" color="rgb(51, 68, 85, 0.8)">
         <ListItem mb={1}><Link color="teal.500" href="https://www.terviseamet.ee/et/uuskoroonaviirus">Mis on koroonaviirus?<Icon name="external-link" mx="5px" /></Link></ListItem>
       </List>

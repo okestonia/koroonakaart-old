@@ -25,6 +25,26 @@ const MainGraphsComponent: React.FC<any> = ({props }) => (
     <Flex alignItems="center" flexDirection="column" flex="1" width={"100%"} maxWidth="1440px" margin="auto">
 
     <Header />
+    {
+        /*
+            Counts of infected, dead and recovered.
+        */
+    }
+  <Flex flexWrap="wrap" flexDirection="row" justifyContent="center" alignItems="stretch" flex="1" width={"100%"}>
+
+    <Box width={"33.33333%"} p={3}>
+        <InfectedCountComponent props={props}/>
+
+    </Box>
+    <Box width={"33.33333%"} p={3}>
+        <DeathCountComponent props={props}/>
+    </Box>
+
+    <Box width={"33.33333%"}  p={3}>
+        <RecoveredCountComponent props={props}/>
+    </Box>
+
+    </Flex>
     <Flex flexWrap="wrap" flexDirection="row" justifyContent="center" alignItems="stretch" flex="1" width={"100%"}>
 
         {/*
@@ -34,7 +54,7 @@ const MainGraphsComponent: React.FC<any> = ({props }) => (
         <CumulativeGrowthComponent props={props} />
       </Box>
 
-        {/* 
+        {/*
             Infections per municipality component
 
         */}
@@ -42,32 +62,6 @@ const MainGraphsComponent: React.FC<any> = ({props }) => (
         <InfectionsPerMuncipalityComponent props={props} />
       </Box>
 
-        {
-            /*
-                Counts of infected, dead and recovered.
-            */
-        }
-      <Flex flexWrap="wrap" flexDirection="column" justifyContent="center" alignItems="stretch" flex="1" width={"20%"}>
-        
-        <Box width={"100%"} p={3}>
-            <InfectedCountComponent props={props}/>
-
-        </Box>
-        <Box width={"100%"} p={3}>
-            <DeathCountComponent props={props}/>        
-        </Box>
-
-        <Box width={"100%"}  p={3}>        
-            <RecoveredCountComponent props={props}/>   
-        </Box>
-
-        </Flex>
-
-      <Box width={['80%']} p={3}>
-        <Block title="Nakatunute võrgustik"  /* footer="Sama päritolu."*/>
-          <NetworkGraph data={props.networkGraphData} />
-        </Block>
-      </Box>
 
     </Flex>
 
