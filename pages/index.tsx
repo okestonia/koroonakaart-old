@@ -1,21 +1,15 @@
 
 import { useMemo, useState } from 'react';
 import { NextPage } from 'next';
-import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
 import { format } from 'date-fns';
-import { Area, AreaChart, ReferenceLine, ComposedChart, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, BarChart, Bar, Cell, LabelList, Legend } from 'recharts';
-import { Flex, Box, Button, ButtonGroup } from '@chakra-ui/core';
-
 import Layout from '../components/Layout';
-import StatBlock from '../components/StatBlock';
-import Block from '../components/Block';
-import Copyright from '../components/Copyright';
-import Header from '../components/Header';
-import NetworkGraph from '../components/NetworkGraph';
-import Table from '../components/Table';
-import { infectionColumns } from '../components/TableColumns';
-import mock from '../utils/mock/mock.json';
+
+import MetaComponent from "../components/MetaComponent";
+import MainGraphsComponent from "../components/MainGraphsComponent";
+// import * as fs from "fs";
+
+
 
 import { getTimeSeriesData, getPredictionData, getTnfectionsByDistrict, getInfectionsBySourceCountry, getNetworkGraphData, colors, getInfectionsToday } from '../utils/chartDataHelper';
 
@@ -50,17 +44,6 @@ export enum InfectionSourceEnum {
   Unknown = "unknown",
 }
 
-const CustomizedAxisTick: React.FC<any> = (props) => {
-  const {
-    x, y, stroke, payload, isDate
-  } = props;
-
-  return (
-    <g transform={`translate(${x},${y})`}>
-      <text x={0} y={0} dy={14} fontSize={12} textAnchor="end" fill="#666" transform="rotate(-35)">{isDate ? format(new Date(payload.value), 'd.M.') : payload.value}</text>
-    </g>
-  );
-}
 
 const Index: NextPage<KoronaData> = ({ confirmed, deaths, recovered }) => {
 
@@ -86,8 +69,28 @@ const Index: NextPage<KoronaData> = ({ confirmed, deaths, recovered }) => {
   const networkGraphData = getNetworkGraphData(confirmed);
   const reversedConfirmed = confirmed.map((i, index) => ({index: index+1, ...i})).reverse()
 
+  const props = {
+    infectionDevelopmentData30Days: infectionDevelopmentData,
+    dataMaxValue: dataMaxValue,
+    infectionsByDistrict: infectionsByDistrict,
+    infectionsBySourceCountry: infectionsBySourceCountry,
+    networkGraphData: networkGraphData,
+    reversedConfirmed: reversedConfirmed,
+    infectionsToday: infectionsToday,
+    latestInfection: latestInfection,
+    latestDeath: latestDeath,
+    confirmedCount: confirmed.length,
+    recoveredCount: recovered.length,
+    deathCount: deaths.length,
+    cumulativeChartScale: cumulativeChartScale,
+    setCumulativeChartScale: setCumulativeChartScale,
+    colors: colors,
+    areas: areas,
+
+  }
   return (
     <Layout>
+<<<<<<< HEAD
       <Head>
         <title>Koroona viirus Eestis – nakatunud: {confirmed.length || 0} - paranenud: {recovered.length || 0} - surnud: {deaths.length || 0}</title>
         <meta name="description" content={`Koroona viirus Eestis – nakatunud: ${confirmed.length || 0} - paranenud: ${recovered.length || 0} - surnud: ${deaths.length || 0}`} />
@@ -118,7 +121,7 @@ const Index: NextPage<KoronaData> = ({ confirmed, deaths, recovered }) => {
               <StatBlock count={recovered.length || 0} />
             </Block>
           </Box>
-          
+
           <Box width={['100%']} p={3}>
             <Block title="Kumulatiivne areng (30 päeva)" footer="Nakatunud, paranenud ja surnud kumulatiivses skaalas viimase 30 päeva lõikes">
             <ButtonGroup spacing={0} alignSelf="center" display="flex" justifyContent="center" marginTop="-15px">
@@ -262,14 +265,21 @@ const Index: NextPage<KoronaData> = ({ confirmed, deaths, recovered }) => {
 
         <Copyright />
       </Flex>
+=======
+      <MetaComponent confirmedCount={confirmed.length || 0} recoveredCount={recovered.length || 0} deathCount={deaths.length || 0}/>
+      <MainGraphsComponent props={props}/>
+>>>>>>> d490fdf648cd37baf4e0f556e7bb8ec71eb596cd
     </Layout>
   );
 }
 
-Index.getInitialProps = async function () {
-  const res = await fetch('https://w3qa5ydb4l.execute-api.eu-west-1.amazonaws.com/prod/finnishCoronaData');
-  const data = await res.json();
 
+/** Data loader */
+Index.getInitialProps = async function () {
+
+  /** Where to load data from */
+  const res = await fetch('https://api.myjson.com/bins/apyvy');
+  const data = await res.json();
   return data;
 };
 
