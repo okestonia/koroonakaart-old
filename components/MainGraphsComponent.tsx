@@ -18,6 +18,7 @@ import InfectedCountComponent from "./InfectedCountComponent";
 import DeathCountComponent from "./DeathCountComponent";
 import RecoveredCountComponent from "./RecoveredCountComponent";
 import TestedCountComponent from "./TestedCountComponent";
+import MapComponent from "./MapComponent";
 
 
 
@@ -68,6 +69,9 @@ const MainGraphsComponent: React.FC<any> = ({props }) => (
       </Box>
 
 
+    </Flex>
+    <Flex flexWrap="wrap" flexDirection="row" justifyContent="center" alignItems="stretch" flex="1" width={"100%"}>
+        <MapComponent props={props}/>
     </Flex>
 
     <Copyright />
