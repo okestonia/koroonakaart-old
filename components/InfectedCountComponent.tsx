@@ -10,7 +10,7 @@ import StatBlock from '../components/StatBlock';
 
 
 const InfectedCountComponent: React.FC<any> = ({props }) => (
-    <Block title="Nakatunud" textAlign="center" extraInfo={`Viimased nakatumised ${props.lastInfectionsData.infections} in. (${props.lastInfectionsData.date})`} 
+    <Block title="Kinnitatud haigusjuhud" textAlign="center" extraInfo={`Viimased nakatumised ${props.lastInfectionsData.infections} in. (${props.lastInfectionsData.date})`} 
             /* footer={`Viimati nakatunud ${props.latestInfection} (${props.latestInfectionDistrict})` }*/ >
         <StatBlock count={props.confirmedCount} helpText={`Viimased nakatumised ${props.lastInfectionsData.infections} in. (${props.lastInfectionsData.date})`} />
     </Block>

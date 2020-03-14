@@ -8,11 +8,12 @@ import StatBlock from '../components/StatBlock';
 
 
 
-const DeathCountComponent: React.FC<any> = ({props }) => (
-    <Block title="Hukkunuid" textAlign="center"
-    extraInfo={props.latestDeath ? `Viimati hukkunud ${props.latestDeath} (${props.latestDeathDistrict})` : ''}>
-    <StatBlock count={props.deathCount || 0} helpText={props.latestDeath ? `Viimati hukkunud ${props.latestDeath} (${props.latestDeathDistrict})` : ''}  />
+
+const InfectionsPerMunicipalityComponent: React.FC<any> = ({props }) => (
+    <Block title="Tehtud teste"
+    textAlign="center" footer={'   '}>
+    <StatBlock count = {843} />
     </Block>
 )
 
-export default DeathCountComponent;
+export default InfectionsPerMunicipalityComponent;

@@ -8,9 +8,8 @@ import StatBlock from './StatBlock';
 
 
 
-
 const RecoveredCountComponent: React.FC<any> = ({props }) => (
-    <Block title="Taastunud" 
+    <Block title="Tervenenuid" 
         textAlign="center" 
         extraInfo={props.latestRecovered ? `Viimati taastunud ${props.latestRecovered}` : '' } >
         <StatBlock count={props.recoveredCount || 0} helpText={props.latestRecovered ? `Viimati taastunud ${props.latestRecovered}` : '' } />
