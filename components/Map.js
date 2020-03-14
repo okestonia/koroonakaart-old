@@ -1,3 +1,8 @@
+import d3 from 'd3';
+import d3ScaleChromatic from 'd3-scale-chromatic';
+import topojson from 'topojson';
+
+
 // Set dimensions
 var width = 600,
     height = 500,
