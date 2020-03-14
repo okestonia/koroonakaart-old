@@ -10,7 +10,13 @@ import topojson from 'topojson';
 const MapComponent: React.FC<any> = ({props }) => (
     <Block title="Map"
     textAlign="center">
-    Map goes here
+        <svg className="map" width="600" height="500"></svg>
+        <div id="credits">
+            <p>Map goes here</p>
+            <p>Source:<br />
+            Administrative and settlement data: <a href="https://github.com/buildig/EHAK">Estonian Land Board</a>, version 20180901</p>
+        </div>
+
     </Block>
 )
 
