@@ -101,7 +101,7 @@ const Index: NextPage<KoronaData> = ({ confirmed, deaths, recovered }) => {
 Index.getInitialProps = async function () {
 
   /** Where to load data from */
-  const res = await fetch('https://api.myjson.com/bins/apyvy');
+  const res = await fetch('http://localhost:3000/EstonianData.json');
   const data = await res.json();
   return data;
 };
