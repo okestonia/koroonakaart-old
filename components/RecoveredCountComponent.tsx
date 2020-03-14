@@ -9,11 +9,12 @@ import StatBlock from './StatBlock';
 
 
 
-const InfectionsPerMunicipalityComponent: React.FC<any> = ({props }) => (
+const RecoveredCountComponent: React.FC<any> = ({props }) => (
     <Block title="Taastunud" 
-    textAlign="center" footer={props.latestRecovered ? `Viimati taastunud ${props.latestRecovered} (${props.latestRecoveredDistrict})` : ' '}>
-    <StatBlock count={props.recoveredCount || 0} />
+        textAlign="center" 
+        extraInfo={props.latestRecovered ? `Viimati taastunud ${props.latestRecovered}` : '' } >
+        <StatBlock count={props.recoveredCount || 0} helpText={props.latestRecovered ? `Viimati taastunud ${props.latestRecovered}` : '' } />
     </Block>
 )
 
-export default InfectionsPerMunicipalityComponent;
+export default RecoveredCountComponent;

@@ -46,9 +46,9 @@ const CumulativeGrowthComponent: React.FC<any> = ({props }) => (
               <CartesianGrid opacity={0.2} />
               <Tooltip labelFormatter={v => format(new Date(v), 'dd.MM.yyyy')} />
               <Bar fill={props.colors[1]} opacity={0.4} dataKey="infectionsDaily" name="Nakatunuid päevas" unit=" in." />
-              <Area type="monotone" unit=" in." name="Nakatunud kokku." dataKey="infections" stroke={props.colors[8]} fillOpacity={1} fill="url(#colorInfection)" />
-              <Area type="monotone" unit=" in." name="Taastunud kokku." dataKey="recovered" stroke={props.colors[7]} fillOpacity={1} fill="url(#colorRecovered)" />
-              <Area type="monotone" unit=" in." name="Hukkunud kokku." dataKey="deaths" stroke={props.colors[0]} fillOpacity={1} fill="url(#colorDeaths)" />
+              <Area type="monotone" unit=" in." name="Nakatunud kokku" dataKey="infections" stroke={props.colors[8]} fillOpacity={1} fill="url(#colorInfection)" />
+              <Area type="monotone" unit=" in." name="Taastunud kokku" dataKey="recovered" stroke={props.colors[7]} fillOpacity={1} fill="url(#colorRecovered)" />
+              <Area type="monotone" unit=" in." name="Hukkunud kokku" dataKey="deaths" stroke={props.colors[0]} fillOpacity={1} fill="url(#colorDeaths)" />
               <Legend wrapperStyle={{bottom: '10px'}} />
             </ComposedChart>
           </ResponsiveContainer>

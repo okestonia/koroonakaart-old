@@ -11,7 +11,7 @@ import MainGraphsComponent from "../components/MainGraphsComponent";
 
 
 
-import { getTimeSeriesData, getInfectionsByDistrictNew, getPredictionData, getInfectionsBySourceCountry, getNetworkGraphData, colors, getInfectionsToday } from '../utils/chartDataHelper';
+import { getTimeSeriesData, getInfectionsByDistrictNew, getPredictionData, getInfectionsBySourceCountry, getNetworkGraphData, colors, getLastInfectionDayData } from '../utils/chartDataHelper';
 
 export interface KoronaData {
   confirmed: Confirmed[];
@@ -55,7 +55,7 @@ const Index: NextPage<KoronaData> = ({ confirmed, deaths, recovered, location })
   const latestDeathDistrict = deaths.length ? deaths[deaths.length - 1].healthCareDistrict : null;
   const latestRecoveredDistrict = recovered.length ? recovered[recovered.length - 1].healthCareDistrict : null;
   const latestRecovered = recovered.length ? format(new Date(recovered[recovered.length - 1].date), 'd.M.yyyy') : null;
-  const infectionsToday = getInfectionsToday(confirmed);
+  const lastInfectionsData = getLastInfectionDayData(confirmed);
 
   const [cumulativeChartScale, setCumulativeChartScale] = useState<'linear' | 'log'>('linear')
   const [forecastChartScale, setForecaseChartScale] = useState<'linear' | 'log'>('linear')
@@ -89,9 +89,10 @@ const Index: NextPage<KoronaData> = ({ confirmed, deaths, recovered, location })
     infectionsBySourceCountry: infectionsBySourceCountry,
     networkGraphData: networkGraphData,
     reversedConfirmed: reversedConfirmed,
-    infectionsToday: infectionsToday,
+    lastInfectionsData: lastInfectionsData, 
     latestInfection: latestInfection,
     latestDeath: latestDeath,
+    latestRecovered: latestRecovered,
     confirmedCount: confirmed.length,
     recoveredCount: recovered.length,
     deathCount: deaths.length,

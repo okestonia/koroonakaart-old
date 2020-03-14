@@ -9,11 +9,11 @@ import StatBlock from '../components/StatBlock';
 
 
 
-const InfectionsPerMunicipalityComponent: React.FC<any> = ({props }) => (
-    <Block title="Nakatunud" textAlign="center" extraInfo={`Uued nakatumised täna ${props.infectionsToday} in.`} 
-            footer={`Viimati nakatunud ${props.latestInfection} (${props.latestInfectionDistrict})`}>
-        <StatBlock count={props.confirmedCount} helpText={`Uued nakatumised täna: ${props.infectionsToday} in.`} />
+const InfectedCountComponent: React.FC<any> = ({props }) => (
+    <Block title="Nakatunud" textAlign="center" extraInfo={`Viimased nakatumised ${props.lastInfectionsData.infections} in. (${props.lastInfectionsData.date})`} 
+            /* footer={`Viimati nakatunud ${props.latestInfection} (${props.latestInfectionDistrict})` }*/ >
+        <StatBlock count={props.confirmedCount} helpText={`Viimased nakatumised ${props.lastInfectionsData.infections} in. (${props.lastInfectionsData.date})`} />
     </Block>
 )
 
-export default InfectionsPerMunicipalityComponent;
+export default InfectedCountComponent;
