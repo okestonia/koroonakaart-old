@@ -11,12 +11,13 @@ import MainGraphsComponent from "../components/MainGraphsComponent";
 
 
 
-import { getTimeSeriesData, getPredictionData, getTnfectionsByDistrict, getInfectionsBySourceCountry, getNetworkGraphData, colors, getInfectionsToday } from '../utils/chartDataHelper';
+import { getTimeSeriesData, getInfectionsByDistrictNew, getPredictionData, getInfectionsBySourceCountry, getNetworkGraphData, colors, getInfectionsToday } from '../utils/chartDataHelper';
 
 export interface KoronaData {
   confirmed: Confirmed[];
   recovered: Recovered[];
   deaths: any[];
+  location: any;
 }
 
 export interface Confirmed {
@@ -45,7 +46,7 @@ export enum InfectionSourceEnum {
 }
 
 
-const Index: NextPage<KoronaData> = ({ confirmed, deaths, recovered }) => {
+const Index: NextPage<KoronaData> = ({ confirmed, deaths, recovered, location }) => {
 
   // Map some data for stats blocks
   const latestInfection = format(new Date(confirmed[confirmed.length - 1].date), 'd.M.yyyy - HH:mm');
@@ -64,15 +65,27 @@ const Index: NextPage<KoronaData> = ({ confirmed, deaths, recovered }) => {
   const { prediction60Days, today } = getPredictionData(confirmed, deaths, recovered);
   const maxValues = infectionDevelopmentData30Days[infectionDevelopmentData30Days.length - 1];
   const dataMaxValue = Math.max(maxValues.deaths, maxValues.infections, maxValues.infections);
-  const { infectionsByDistrict, infectionsByDistrictPercentage, areas } = getTnfectionsByDistrict(confirmed);
+  
+
+  // Get infections by district
+  /**
+   * Data format for infectionsByDistrict is [{name: "tartu", infections: 55, people: 100000}]
+   */
+
+  //console.log(location);
+
+  const { infectionsByDistrict, areas } = getInfectionsByDistrictNew(location);
   const { infectionsBySourceCountry } = getInfectionsBySourceCountry(confirmed);
   const networkGraphData = getNetworkGraphData(confirmed);
   const reversedConfirmed = confirmed.map((i, index) => ({index: index+1, ...i})).reverse()
 
+  // console.log(infectionsByDistrict);
+  // console.log(areas)
+
   const props = {
     infectionDevelopmentData30Days: infectionDevelopmentData,
     dataMaxValue: dataMaxValue,
-    infectionsByDistrict: infectionsByDistrict,
+    infectionsByDistrict: infectionsByDistrict, 
     infectionsBySourceCountry: infectionsBySourceCountry,
     networkGraphData: networkGraphData,
     reversedConfirmed: reversedConfirmed,

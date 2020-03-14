@@ -8,7 +8,7 @@ import CustomizedAxisTick from "./CustomizedAxisTick"
 
 
 
-const InfectionsPerMunicipalityComponent: React.FC<any> = ({props }) => (
+const InfectionsPerMunicipalityComponent: React.FC<any> = ({props}) => (
 
         <Block title="Nakatunuid maakonniti" /*footer="alltekst" */>
         <ResponsiveContainer width={'100%'} height={350}>
