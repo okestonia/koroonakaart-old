@@ -10,7 +10,7 @@ import CustomizedAxisTick from "./CustomizedAxisTick"
 
 const InfectionsPerMunicipalityComponent: React.FC<any> = ({props}) => (
 
-        <Block title="Nakatunuid maakonniti" /*footer="alltekst" */>
+        <Block title="Kinnitatud haigusjuhud maakonniti" /*footer="alltekst" */>
         <ResponsiveContainer width={'100%'} height={350}>
           <BarChart
             data={props.infectionsByDistrict}
