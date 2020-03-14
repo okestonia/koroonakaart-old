@@ -10,11 +10,11 @@ interface MetaProps {
 
 const MetaComponent: React.FC<MetaProps> = ({ confirmedCount, recoveredCount, deathCount }) => (
     <Head>
-        <title>Koroonakaart - Nakatunud: {confirmedCount|| 0} - 
+        <title>Koroonakaart - Nakatunud: {confirmedCount|| 0} -
             taastunud: {recoveredCount || 0} - surnud: {deathCount || 0}</title>
-        <meta name="description" content={`Suomen koronavirus-tartuntatilanne – tartunnat: ${confirmedCount || 0} - parantuneet: ${recoveredCount || 0} - menehtyneet: ${deathCount || 0}`} />
+        <meta name="description" content={`Koroona viirus Eestis - Nakatunud: ${confirmedCount || 0} - taastunud: ${recoveredCount || 0} - hukkunud: ${deathCount || 0}`} />
         <meta property="og:title" content={`Eesti koroonakaart`} />
-        <meta property="og:description" content={`Tartuntoja tällä hetkellä: ${confirmedCount || 0} - parantuneet: ${recoveredCount || 0} - menehtyneet: ${deathCount || 0}`} />
+        <meta property="og:description" content={`Koroona viirus Eestis - Nakatunud: ${confirmedCount || 0} - taastunud: ${recoveredCount || 0} - hukkunud: ${deathCount || 0}`} />
         <meta property="og:site_name" content="Koroonakaart" />
         <meta property="og:locale" content="et_ET" />
         <meta property="og:type" content="website" />
