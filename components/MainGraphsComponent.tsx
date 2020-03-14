@@ -63,13 +63,6 @@ const MainGraphsComponent: React.FC<any> = ({props }) => (
       </Box>
 
 
-
-      <Box width={['80%']} p={3}>
-        <Block title="Nakatunute võrgustik"  /* footer="Sama päritolu."*/>
-          <NetworkGraph data={props.networkGraphData} />
-        </Block>
-      </Box>
-
     </Flex>
 
     <Copyright />
